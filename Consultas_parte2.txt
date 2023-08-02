@@ -1,0 +1,43 @@
+python manage.py shell
+
+(practica_final) C:\Users\Roberg\Desktop\Modulo 7\Drilling\practica_final_orm_django>python manage.py shell
+Python 3.11.3 (tags/v3.11.3:f3909b8, Apr  4 2023, 23:49:59) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+########## punto 1 de consultas
+#importar los models
+ from laboratorio.models import Laboratorio, DirectorGeneral, Producto
+
+ # Obtener todos los objetos del modelo Laboratorio
+ laboratorios = Laboratorio.objects.all()
+
+ # Obtener todos los objetos del modelo DirectorGeneral
+ directores_generales = DirectorGeneral.objects.all()
+
+ # Obtener todos los objetos del modelo Producto
+ productos = Producto.objects.all()
+
+      ########## punto 2 de consultas
+
+ # Obtener el producto cuyo nombre es 'Producto 1'
+ producto_1 = Producto.objects.get(nombre='Producto 1')
+ 
+ # Obtener el laboratorio asociado al producto 'Producto 1'
+ laboratorio_producto_1 = producto_1.laboratorio
+
+ # Imprimir el nombre del laboratorio
+ print(laboratorio_producto_1.nombre)
+
+ ########## punto 3 de consultas
+
+ # Obtener todos los productos ordenados por nombre
+ productos_ordenados = Producto.objects.order_by('nombre')
+
+ # Mostrar los valores de nombre y laboratorio de cada producto
+ for producto in productos_ordenados:
+        print(f"Nombre: {producto.nombre}, Laboratorio: {producto.laboratorio.nombre}")
+
+ ########## punto 4 de consultas
+
+
+
